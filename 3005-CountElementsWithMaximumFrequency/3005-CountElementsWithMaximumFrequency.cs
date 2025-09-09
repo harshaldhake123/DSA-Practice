@@ -1,4 +1,4 @@
-// Last updated: 9/9/2025, 10:29:58 AM
+// Last updated: 9/9/2025, 10:30:17 AM
 public class Solution {
     public int MaxFrequencyElements(int[] nums) {
         var map=new Dictionary<int,int>();
@@ -18,7 +18,6 @@ public class Solution {
         }
         var count=0;
         foreach(var kvp in map){
-            Console.WriteLine("key: "+ kvp.Key + "\tvalue: "+kvp.Value);
             if(kvp.Value == maxFreq){
                 count++;
             }
