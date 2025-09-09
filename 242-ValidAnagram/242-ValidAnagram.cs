@@ -1,4 +1,4 @@
-// Last updated: 9/9/2025, 10:07:30 PM
+// Last updated: 9/9/2025, 10:07:57 PM
 public class Solution {
     public bool IsAnagram(string s, string t) {
         if(s.Length!=t.Length) return false;
