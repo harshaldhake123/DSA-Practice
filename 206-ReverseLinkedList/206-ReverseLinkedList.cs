@@ -1,4 +1,4 @@
-// Last updated: 9/9/2025, 5:39:08 PM
+// Last updated: 9/9/2025, 6:09:04 PM
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -11,7 +11,20 @@
  * }
  */
 public class Solution {
-    public ListNode ReverseList(ListNode head) {
+
+    public ListNode ReverseList(ListNode head){
+        if(head ==null || head.next ==null){
+            return head;
+        }
+
+        var newHead=ReverseList(head.next);
+        var front=head.next;
+        front.next=head;
+        head.next=null;
+        return newHead;
+    }
+    // SC: O(1), TC: O(1)
+    public ListNode ReverseListIterativeO1SpaceComplexity(ListNode head) {
         ListNode current=head, previous=null, front=null;
         while(current!=null){
             front=current.next;
