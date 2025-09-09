@@ -1,4 +1,4 @@
-// Last updated: 9/9/2025, 5:20:08 PM
+// Last updated: 9/9/2025, 5:39:08 PM
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -12,6 +12,18 @@
  */
 public class Solution {
     public ListNode ReverseList(ListNode head) {
+        ListNode current=head, previous=null, front=null;
+        while(current!=null){
+            front=current.next;
+            current.next=previous;
+            previous=current;
+            current=front;
+        }
+        return previous;
+    }
+
+    ///SC: O(N), TC: O(2N)=> O(N)
+    public ListNode ReverseListIterative(ListNode head) {
         var stack = new Stack<int>();
         var temp=head;
 
