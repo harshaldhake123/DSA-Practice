@@ -1,4 +1,4 @@
-// Last updated: 9/9/2025, 1:07:29 PM
+// Last updated: 9/9/2025, 1:14:12 PM
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -11,19 +11,19 @@
  * }
  */
 public class Solution {
-    public bool HasCycle(ListNode head) {
-        // two pointers, tortoise-hare method.
-        if(head ==null) return false;
-        var ptr=head;
-        var ptr2=head.next;
-        while(ptr2 !=null && ptr2.next!=null){
-            if(ptr==ptr2){
-                return true;
-            }
-            ptr=ptr.next;
-            ptr2=ptr2.next.next;
+    public bool HasCycle(ListNode? head)
+    {
+        if (head == null) return false;
 
+        ListNode? slow = head, fast = head;
+        while (fast?.next != null)
+        {
+            slow = slow?.next;
+            fast = fast.next?.next;
+
+            if (slow == fast) return true;
         }
+
         return false;
     }
 }
