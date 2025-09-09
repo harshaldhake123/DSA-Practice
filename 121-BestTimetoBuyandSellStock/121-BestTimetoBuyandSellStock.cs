@@ -1,4 +1,4 @@
-// Last updated: 9/9/2025, 9:37:32 PM
+// Last updated: 9/9/2025, 9:42:04 PM
 public class Solution {
     public int MaxProfit(int[] prices) {
         if(prices.Length < 2) return 0;
