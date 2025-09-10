@@ -1,4 +1,4 @@
-// Last updated: 9/10/2025, 10:17:35 PM
+// Last updated: 9/10/2025, 10:17:46 PM
 /*
     [0]-> 0 ways
     [1]-> 1 ways
