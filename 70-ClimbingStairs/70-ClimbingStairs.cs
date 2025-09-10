@@ -1,4 +1,4 @@
-// Last updated: 9/10/2025, 10:28:54 PM
+// Last updated: 9/10/2025, 10:29:03 PM
 public class Solution
 {
     public int ClimbStairs(int n)
