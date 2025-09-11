@@ -1,15 +1,12 @@
-// Last updated: 9/11/2025, 11:01:25 PM
+// Last updated: 9/11/2025, 11:05:37 PM
 public class Solution {
     public int MissingNumber(int[] nums) {
-        var frequency=new int[nums.Length+1];
+    var actualSum=0;
         foreach(var num in nums){
-            frequency[num]++;
+           actualSum+=num;
         }
-        for(int i=0;i<frequency.Length;i++){
-            if(frequency[i]==0){
-                return i;
-            }
-        }
-        return -1;
+        var expectedSum=nums.Length*(nums.Length+1)/2;
+
+        return expectedSum-actualSum;
     }
 }
