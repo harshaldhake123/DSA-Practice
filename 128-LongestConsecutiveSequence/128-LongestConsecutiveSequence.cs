@@ -1,4 +1,4 @@
-// Last updated: 9/12/2025, 9:49:19 PM
+// Last updated: 9/12/2025, 9:51:42 PM
 public class Solution {
     public int LongestConsecutive(int[] nums) {
         var maxCount=0;
@@ -7,18 +7,15 @@ public class Solution {
             set.Add(n);
         }
         foreach(var num in set){
-            var count=1;
             var n=num;
-            if(set.Contains(n-1)){ // its part of existing sequence
-                count++;
-                continue;
+            if(!set.Contains(n-1)){ // its a new sequence
+                var count=1;
+                while(set.Contains(n+1)){
+                    n++;
+                    count++;
+                }
+                maxCount=Math.Max(maxCount,count);
             }
-            count=1;
-            while(set.Contains(n+1)){
-                n++;
-                count++;
-            }
-            maxCount=Math.Max(maxCount,count);
         }
         return maxCount;
     }
