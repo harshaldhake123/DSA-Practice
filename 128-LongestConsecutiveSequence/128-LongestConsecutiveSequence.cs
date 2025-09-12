@@ -1,6 +1,6 @@
-// Last updated: 9/12/2025, 9:51:42 PM
+// Last updated: 9/12/2025, 10:11:35 PM
 public class Solution {
-    public int LongestConsecutive(int[] nums) {
+    public int LongestConsecutiveSet(int[] nums) {
         var maxCount=0;
         var set=new HashSet<int>();
         foreach(var n in nums){
@@ -18,6 +18,31 @@ public class Solution {
             }
         }
         return maxCount;
+    }
+
+    // Sorting array
+     public int LongestConsecutive(int[] nums) {
+        if(nums.Length==0){
+            return 0;
+        }
+        var maxCount=0;
+        
+        Array.Sort(nums);
+        var lastSmaller=int.MinValue;
+        var count=1;
+        for(int i=1;i<nums.Length;i++){
+            if(nums[i-1]==nums[i]){ //skip if duplicate
+                continue;
+            }
+            if(nums[i]==nums[i-1]+1){ // current is consecutive to last
+                count++;
+            }else { 
+                // sequence broke, so reset count, find max until now
+                maxCount=Math.Max(maxCount,count);
+                count=1;
+            }
+        }
+        return Math.Max(maxCount,count);;
     }
 
 public int LongestConsecutiveBruteForce(int[] nums) {
