@@ -1,4 +1,4 @@
-// Last updated: 9/12/2025, 11:55:47 PM
+// Last updated: 9/12/2025, 11:57:12 PM
 public class Solution {
     public string MinWindow(string s, string t) {
         if (t.Length > s.Length) return string.Empty;
