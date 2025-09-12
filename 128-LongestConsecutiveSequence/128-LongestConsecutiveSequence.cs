@@ -1,6 +1,6 @@
-// Last updated: 9/12/2025, 10:11:35 PM
+// Last updated: 9/12/2025, 10:14:59 PM
 public class Solution {
-    public int LongestConsecutiveSet(int[] nums) {
+    public int LongestConsecutive(int[] nums) {
         var maxCount=0;
         var set=new HashSet<int>();
         foreach(var n in nums){
@@ -21,15 +21,13 @@ public class Solution {
     }
 
     // Sorting array
-     public int LongestConsecutive(int[] nums) {
+     public int LongestConsecutiveSorting(int[] nums) {
         if(nums.Length==0){
             return 0;
         }
-        var maxCount=0;
-        
-        Array.Sort(nums);
-        var lastSmaller=int.MinValue;
+        var maxCount=1;
         var count=1;
+        Array.Sort(nums);
         for(int i=1;i<nums.Length;i++){
             if(nums[i-1]==nums[i]){ //skip if duplicate
                 continue;
