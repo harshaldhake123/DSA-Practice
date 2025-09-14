@@ -1,4 +1,4 @@
-// Last updated: 9/14/2025, 11:00:52 PM
+// Last updated: 9/14/2025, 11:01:51 PM
 public class Solution {
     public int MaxSubArray(int[] nums) {
         // brute
