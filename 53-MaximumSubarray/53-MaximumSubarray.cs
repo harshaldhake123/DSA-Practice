@@ -1,17 +1,28 @@
-// Last updated: 9/14/2025, 11:03:01 PM
+// Last updated: 9/14/2025, 11:31:20 PM
 public class Solution {
     
     public int MaxSubArray(int[] nums) {
         // Kadane's algorithm: do not carry negative burden to the future
+        // Also printing the subarray indexes for followup
         var maxSum=nums[0];
         var sum=0;
-        foreach(var n in nums){
-            sum+=n;
+        int start=0;
+        int maxStart=0;
+        int maxEnd=0;
+        for(var i=0;i<nums.Length;i++){
+            if(sum==0) start=i;
+            sum+=nums[i];
+            if(sum > maxSum){
+                maxSum=sum;
+                maxStart=start;
+                maxEnd= i;
+            }
             maxSum = Math.Max(sum,maxSum);
             if(sum<0){
                 sum=0;
             }
         }
+        Console.WriteLine(maxStart+"\t"+maxEnd);
         return maxSum;
     }
 
