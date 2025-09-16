@@ -1,4 +1,4 @@
-// Last updated: 9/16/2025, 10:30:57 PM
+// Last updated: 9/16/2025, 10:33:43 PM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -14,6 +14,24 @@
  */
 public class Solution {
     public TreeNode InvertTree(TreeNode root) {
+        if(root==null){
+            return null;
+        }
+        //BFS using queue
+        var queue=new Queue<TreeNode>();
+        queue.Enqueue(root);
+        while(queue.Count>0){
+            var node=queue.Dequeue();
+            var left=node.left;
+            node.left=node.right;
+            node.right=left;
+            if(node.left!=null) queue.Enqueue(node.left);
+            if(node.right!=null) queue.Enqueue(node.right);
+        }
+        return root;
+    }
+
+    public TreeNode InvertTreeStack(TreeNode root) {
         if(root==null){
             return null;
         }
