@@ -1,4 +1,4 @@
-// Last updated: 9/16/2025, 10:00:42 PM
+// Last updated: 9/16/2025, 10:30:57 PM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -14,12 +14,30 @@
  */
 public class Solution {
     public TreeNode InvertTree(TreeNode root) {
+        if(root==null){
+            return null;
+        }
+        //DFS, Using stack instead of recursion
+        var stack=new Stack<TreeNode>();
+        stack.Push(root);
+        while(stack.Count>0){
+            var node=stack.Pop();
+            var left=node.left;
+            node.left=node.right;
+            node.right=left;
+            if(node.left!=null) stack.Push(node.left);
+            if(node.right!=null) stack.Push(node.right);
+        }
+        return root;
+    }
+
+    public TreeNode InvertTreeInOrder(TreeNode root) {
         //swap right and left nodes of root, 
         // recursively swap each right and left node 
         if(root==null){
             return null;
         }
-        //DFS
+        //DFS, Inorder because root is processed before its left and right.
         TreeNode temp;
         temp=root.right;
         root.right=root.left;
