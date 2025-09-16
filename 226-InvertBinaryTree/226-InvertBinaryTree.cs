@@ -1,4 +1,4 @@
-// Last updated: 9/16/2025, 10:33:43 PM
+// Last updated: 9/16/2025, 10:45:39 PM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -31,7 +31,7 @@ public class Solution {
         return root;
     }
 
-    public TreeNode InvertTreeStack(TreeNode root) {
+    public TreeNode InvertTreeDfsStack(TreeNode root) {
         if(root==null){
             return null;
         }
@@ -49,13 +49,13 @@ public class Solution {
         return root;
     }
 
-    public TreeNode InvertTreeInOrder(TreeNode root) {
+    public TreeNode InvertTreePreOrder(TreeNode root) {
         //swap right and left nodes of root, 
         // recursively swap each right and left node 
         if(root==null){
             return null;
         }
-        //DFS, Inorder because root is processed before its left and right.
+        //DFS, Preorder because root is processed before its left and right.
         TreeNode temp;
         temp=root.right;
         root.right=root.left;
@@ -63,6 +63,37 @@ public class Solution {
 
         InvertTree(root.right);
         InvertTree(root.left);
+        return root;
+    }
+
+    public TreeNode InvertTreeInOrder(TreeNode root) {
+        if(root==null){
+            return null;
+        }
+        //DFS, Inorder because left is processed before root, then right.
+        InvertTree(root.left);
+        
+        TreeNode temp;
+        temp=root.right;
+        root.right=root.left;
+        root.left=temp;
+        // Now the old right is the new left node, so invert left subtree.
+        InvertTree(root.left);
+        return root;
+    }
+    
+    public TreeNode InvertTreePostOrder(TreeNode root) {
+        if(root==null){
+            return null;
+        }
+        //DFS, Postorder because left is processed before right, then root.
+        InvertTree(root.left);
+        InvertTree(root.right);
+        
+        TreeNode temp;
+        temp=root.right;
+        root.right=root.left;
+        root.left=temp;
         return root;
     }
 }
