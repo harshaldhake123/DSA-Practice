@@ -1,0 +1,24 @@
+// Last updated: 9/17/2025, 9:47:55 PM
+public class Solution {
+    public void Rotate(int[][] matrix) {
+        int n = matrix.Length;
+
+        // Transpose the matrix
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[j][i];
+                matrix[j][i] = temp;
+            }
+        }
+
+        // Reverse each row
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n / 2; j++) { // only loop until first vertical half
+                int temp = matrix[i][j];
+                matrix[i][j] = matrix[i][n - 1 - j];
+                matrix[i][n - 1 - j] = temp;
+            }
+        }
+    }
+}
