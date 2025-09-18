@@ -1,4 +1,4 @@
-// Last updated: 9/18/2025, 10:24:43 PM
+// Last updated: 9/18/2025, 10:36:24 PM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -17,15 +17,14 @@ public class Solution {
         // Inorder = left, root, right
         var list=new List<int>();
         var stack=new Stack<TreeNode>();
-      var  current=root;
-        while(current!=null || stack.Count>0){
-            while(current!=null){
-                stack.Push(current);
-                current=current.left;
+        while(root!=null || stack.Count>0){
+            while(root!=null){
+                stack.Push(root);
+                root=root.left;
             }
-            current=stack.Pop();
-            list.Add(current.val);
-            current=current.right;
+            root=stack.Pop();
+            list.Add(root.val);
+            root=root.right;
         }
         return list;
     }
