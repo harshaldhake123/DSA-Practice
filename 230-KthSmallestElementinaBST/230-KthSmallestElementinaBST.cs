@@ -1,4 +1,4 @@
-// Last updated: 9/18/2025, 10:18:20 PM
+// Last updated: 9/18/2025, 10:50:56 PM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -14,9 +14,27 @@
  */
 public class Solution {
     public int KthSmallest(TreeNode root, int k) {
-        var stack=new Stack<TreeNode>();
-        var current=root;
+        var count=0;
+        int ans=0;
+        traverse(root,ref count,ref ans, k);
+        return ans;
+
+    }
+    private void traverse(TreeNode root,ref int count,ref int ans, int k){
+        if(root ==null) return;
+        this.traverse(root.left,ref count,ref ans, k);
+        count++;
+        if(count==k){
+            ans=root.val;
+            return;
+        }
+        this.traverse(root.right,ref count,ref ans,k);
+
+    }
+    public int KthSmallestStack(TreeNode root, int k) {
         var n=0;
+        var current=root;
+        var stack=new Stack<TreeNode>();
         while(current!=null || stack.Count>0){
             while(current !=null){
                 stack.Push(current);
