@@ -1,4 +1,4 @@
-// Last updated: 9/18/2025, 10:36:24 PM
+// Last updated: 9/18/2025, 10:39:40 PM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -13,7 +13,20 @@
  * }
  */
 public class Solution {
+
     public IList<int> InorderTraversal(TreeNode root) {
+        var list=new List<int>();
+        this.traverse(root,list);
+        return list;
+    }
+    private void traverse(TreeNode root, List<int> list){
+        if(root==null) return ;
+        traverse(root.left,list);
+        list.Add(root.val);
+        traverse(root.right,list);
+    }
+
+    public IList<int> InorderTraversalIterative(TreeNode root) {
         // Inorder = left, root, right
         var list=new List<int>();
         var stack=new Stack<TreeNode>();
