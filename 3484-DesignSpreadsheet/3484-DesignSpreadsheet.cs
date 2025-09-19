@@ -1,10 +1,14 @@
-// Last updated: 9/19/2025, 9:53:47 PM
+// Last updated: 9/19/2025, 9:55:55 PM
 public class Spreadsheet {
     private readonly int[,] sheet;
     public Spreadsheet(int rows) {
         this.sheet=new int[rows,26];
     }
     
+    // All operations take O(1)
+    // Cons: need to block whole sheet memory even if not all is used.
+    // needing more size will need another huge array, so not scalable
+    // mandates homogeneous data.
     public void SetCell(string cell, int value) {
         var (row,col) = ParseCell(cell);
         sheet[row,col]=value;
