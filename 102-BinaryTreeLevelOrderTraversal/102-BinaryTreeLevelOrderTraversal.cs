@@ -1,4 +1,4 @@
-// Last updated: 9/22/2025, 10:53:43 PM
+// Last updated: 9/22/2025, 10:55:12 PM
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -14,10 +14,10 @@
  */
 public class Solution {
     public IList<IList<int>> LevelOrder(TreeNode root) {
-        if(root==null){
-            return [];
-        }
         var list=new List<IList<int>>();
+        if(root==null){
+            return list;
+        }
         var queue=new Queue<TreeNode>();
         queue.Enqueue(root);
         while(queue.Count>0){
@@ -25,10 +25,12 @@ public class Solution {
             var count=queue.Count;
             for(int i=0;i<count;i++){
                 var node = queue.Dequeue();
-                if(node!=null){
+                level.Add(node.val);
+                if(node.left!=null){
                     queue.Enqueue(node.left);
+                }
+                if(node.right!=null){
                     queue.Enqueue(node.right);
-                    level.Add(node.val);
                 }
             }
             if(level.Count>0){
