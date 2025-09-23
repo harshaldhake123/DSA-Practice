@@ -1,5 +1,7 @@
-// Last updated: 9/23/2025, 9:30:22 PM
+// Last updated: 9/23/2025, 9:31:06 PM
 public class Solution {
+    // TC: O(N)
+    // SC: O(1)
     public int CompareVersion(string version1, string version2) {
         var i=0;
         var j=0;
