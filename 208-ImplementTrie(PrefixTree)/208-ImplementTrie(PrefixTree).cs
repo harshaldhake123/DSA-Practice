@@ -1,4 +1,4 @@
-// Last updated: 9/24/2025, 10:11:44 PM
+// Last updated: 9/24/2025, 10:12:52 PM
 public class TrieNode{
     public Dictionary<char,TrieNode> children=new Dictionary<char,TrieNode>();
     public bool isEndOfWord=false;
@@ -34,17 +34,13 @@ public class Trie {
     
     public bool StartsWith(string prefix) {
         var current=this.root;
-        var exists=false;
         foreach(var c in prefix){
-            if(current.children.ContainsKey(c)){
-                exists=true;
-                current=current.children[c];
-            }else{
-                exists=false;
-                break;
+            if(!current.children.ContainsKey(c)){
+                return false;
             }
+            current=current.children[c];
         }
-        return exists;
+        return true;
     }
 }
 
