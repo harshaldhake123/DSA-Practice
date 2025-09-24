@@ -1,4 +1,4 @@
-// Last updated: 9/24/2025, 10:12:52 PM
+// Last updated: 9/24/2025, 10:13:00 PM
 public class TrieNode{
     public Dictionary<char,TrieNode> children=new Dictionary<char,TrieNode>();
     public bool isEndOfWord=false;
