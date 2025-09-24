@@ -1,4 +1,4 @@
-// Last updated: 9/24/2025, 10:52:39 PM
+// Last updated: 9/24/2025, 10:52:48 PM
 public class TrieNode{
     public TrieNode[] children=new TrieNode[26];
     public bool isEnd=false;
