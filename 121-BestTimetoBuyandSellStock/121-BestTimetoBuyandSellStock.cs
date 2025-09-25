@@ -1,17 +1,17 @@
-// Last updated: 9/9/2025, 9:42:46 PM
+// Last updated: 9/25/2025, 9:54:21 PM
 public class Solution {
 
     public int MaxProfit(int[] prices) {
-        if(prices.Length<2){ return 0;}
+        if(prices.Length<=1) return 0;
         var left=0;
         var right=1;
         var maxProfit=0;
-
-        while(right < prices.Length){
-            if(prices[left]>prices[right]){
+        while(right< prices.Length){
+            if(prices[right]<prices[left]){
                 left=right;
-            }else{
-                maxProfit=Math.Max(prices[right]-prices[left],maxProfit);
+            }
+            else {
+                maxProfit=Math.Max(maxProfit,prices[right]-prices[left]);
             }
             right++;
         }
