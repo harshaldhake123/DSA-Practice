@@ -1,4 +1,4 @@
-// Last updated: 9/28/2025, 9:46:54 PM
+// Last updated: 9/28/2025, 9:48:05 PM
 public class Solution {
     public int[] Intersection(int[] nums1, int[] nums2) {
         Array.Sort(nums1);
