@@ -1,9 +1,27 @@
-// Last updated: 9/28/2025, 9:19:42 PM
-using System.Collections.Generic;
-using System.Linq;
-
+// Last updated: 9/28/2025, 9:31:03 PM
 public class Solution {
-    public int[] Intersect(int[] nums1, int[] nums2) {
+    //Sort Method, TC:O(NlogN+ MlogM), SC: O(min(m,n))
+    public int[] Intersect(int[] nums1, int[] nums2) {//Sort method
+        Array.Sort(nums1); //O(mlogm)
+        Array.Sort(nums2);//O(nlogn)
+        var i=0;
+        var j=0;
+        var result=new List<int>();
+        while(i<nums1.Length && j<nums2.Length){
+            if(nums1[i]<nums2[j]){
+                i++;
+            }else if(nums1[i]>nums2[j]){
+                j++;
+            }else{
+                result.Add(nums1[i]);
+                i++;
+                j++;
+            }
+        }
+        return result.ToArray();
+    }
+
+    public int[] IntersectWithHashMap(int[] nums1, int[] nums2) {
         // Use a map to count the occurrences in the smaller array
         // to use less space
         if (nums1.Length > nums2.Length) {
