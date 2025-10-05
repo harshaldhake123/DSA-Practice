@@ -1,4 +1,4 @@
-// Last updated: 10/5/2025, 9:00:10 PM
+// Last updated: 10/5/2025, 9:01:00 PM
 public class TrieNode{
     public Dictionary<char,TrieNode> children=new Dictionary<char,TrieNode>();
     public bool isEndOfWord;
@@ -13,6 +13,7 @@ public class Solution {
             if(string.IsNullOrEmpty(s)) return string.Empty;
             AddWordToTrie(root,s);
         }
+        // traverse the tree, the moment either a node is end of word, or the trie splits is the end of loop. 
         var current=root;
         var longest=string.Empty;
         while(current.children.Count==1){
