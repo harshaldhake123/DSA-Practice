@@ -1,4 +1,4 @@
-// Last updated: 10/7/2025, 9:52:33 PM
+// Last updated: 10/7/2025, 9:52:56 PM
 public class Solution {
     public int MyAtoi(string s) {
         if(string.IsNullOrWhiteSpace(s)) return 0;
@@ -18,9 +18,10 @@ public class Solution {
         while(i<s.Length && s[i]=='0'){
             i++;
         }
-        //Rule 4: Roundoff long to max/min int if overflow
         while(i<s.Length && char.IsDigit(s[i])){
             var digit=s[i]-'0';
+            //Rule 4: Roundoff long to max/min int if overflow
+            // >7 because maxInt's last digit is 7
             if(result > int.MaxValue/10 || (result==int.MaxValue/10 && digit>7)){
                 return sign>0? int.MaxValue: int.MinValue;
             }
