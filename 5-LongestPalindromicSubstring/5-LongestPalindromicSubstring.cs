@@ -1,4 +1,4 @@
-// Last updated: 10/9/2025, 9:29:12 PM
+// Last updated: 10/9/2025, 9:32:57 PM
 public class Solution {
     public string LongestPalindrome(string s) {
         if(s.Length <= 1) return s;
