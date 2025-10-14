@@ -1,4 +1,4 @@
-// Last updated: 10/14/2025, 9:43:27 PM
+// Last updated: 10/14/2025, 9:43:36 PM
 public class Solution {
     public int[][] Merge(int[][] intervals) {
         Array.Sort(intervals,(a,b)=>a[0].CompareTo(b[0]));
