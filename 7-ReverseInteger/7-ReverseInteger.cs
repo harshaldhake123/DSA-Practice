@@ -1,24 +1,20 @@
-// Last updated: 9/8/2025, 11:08:47 PM
-public class Solution {
-    public int Reverse(int x) {
-        var isNegative=false;
-        if(x<0){
-            isNegative=true;
-            x=-x;
-        }
-        int res=0;
-
-        while(x>0){
-            var rem=x % 10;
-            if(res > (int.MaxValue-rem)/10){
-                return 0;
-            }
-            res=res*10 + rem;
-            x/=10;
-        }
-        if(isNegative){
-            return -res;
-        }
-        return res;
-    }
-}
+// Last updated: 12/2/2025, 10:21:00 PM
+1public class Solution {
+2    public int Reverse(int x) {
+3        var isNegative=false;
+4        var result=0;
+5        if(x<0){
+6            isNegative=true;
+7            x*=-1;
+8        }
+9        while(x>0){
+10            var remainder=x%10;
+11            if(result>(int.MaxValue-remainder)/10){
+12                return 0;
+13            }
+14            result=result*10+remainder;
+15            x=x/10;
+16        }
+17        return isNegative? -result : result;
+18    }
+19}
