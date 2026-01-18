@@ -1,16 +1,16 @@
-// Last updated: 9/9/2025, 12:08:26 PM
-public class Solution {
-    public int[] TwoSum(int[] nums, int target) {
-        var map=new Dictionary<int,int>();
-
-        for(int i=0;i<nums.Length;i++){
-            var complement=target-nums[i];
-
-            if(map.ContainsKey(complement)){
-                return [map[complement],i];
-            }
-            map[nums[i]]=i;
-        }
-        return [0,0];
-    }
-}
+// Last updated: 1/18/2026, 2:38:46 PM
+1public class Solution {
+2    public int[] TwoSum(int[] nums, int target) {
+3        var map=new Dictionary<int,int>();
+4
+5        for(int i=0;i<nums.Length;i++){
+6            var complement=target-nums[i];
+7
+8            if(map.ContainsKey(complement)){
+9                return [map[complement],i];
+10            }
+11            map[nums[i]]=i;
+12        }
+13        return [0,0];
+14    }
+15}
